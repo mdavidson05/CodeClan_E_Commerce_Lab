@@ -8,7 +8,7 @@ const BasketContainer = () => {
 
     const basketItemNodes = newBasketItem.map((item, index) => {
         return (
-        <BasketItem key={index} value={item} deleteFromBasket = {deleteFromBasket}/>
+        <BasketItem key={index} namevalue={item.name} pricevalue={item.price} deleteFromBasket = {deleteFromBasket}/>
         )
     })
 

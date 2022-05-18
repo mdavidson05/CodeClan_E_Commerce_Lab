@@ -9,7 +9,7 @@ const ListContainer = () => {
 
     const listItemNodes =  list.map ((list, index) => {
         return (
-            <ListItem key = {index} value = {list} handleButtonClick = {handleBasketButton} />
+            <ListItem key = {index} valuename = {list.name} valueprice = {list.price} handleButtonClick = {handleBasketButton} />
         )
     })
 

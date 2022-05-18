@@ -8,13 +8,16 @@ import styled from 'styled-components';
 
 const MainPage = () => {
 
-    const [list, setList] = useState(['couch', 'bread', 'cutlery', 'hairdryer']);
+    const [list, setList] = useState([{name: 'couch', price: 100}, {name:'bread', price:5}, {name:'cutlery', price:10}, {name:'hairdryer', price:20}]);
+
     const [newBasketItem, setNewBasketItem] = useState([]) 
 
     const handleBasketButton = (event) => {
         const copyBasket = [... newBasketItem]
-        const newItem = event.target.value
-        copyBasket.push(newItem)
+        // debugger;
+        const newItemPrice = event.target.value
+        const newItemName = event.target.id
+        copyBasket.push({name: newItemName, price:newItemPrice})
 
         setNewBasketItem(copyBasket)
 
@@ -22,7 +25,7 @@ const MainPage = () => {
 
     const deleteFromBasket = (event) => {
         const copyBasket = [... newBasketItem]
-        const deletedItem = event.target.value
+        const deletedItem = event.target.id
         copyBasket.splice(deletedItem, 1)
         setNewBasketItem(copyBasket)
     }
