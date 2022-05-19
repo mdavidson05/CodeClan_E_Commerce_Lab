@@ -10,25 +10,26 @@ const MainPage = () => {
 
     const [list, setList] = useState([{name: 'couch', price: 100}, {name:'bread', price:5}, {name:'cutlery', price:10}, {name:'hairdryer', price:20}]);
 
-    const [newBasketItem, setNewBasketItem] = useState([]) 
+    const [basket, setBasket] = useState([]) 
 
-    const handleBasketButton = (event) => {
-        const copyBasket = [... newBasketItem]
+    const handleBasketButton = (item) => {
+        const copyBasket = [... basket, item]
         // debugger;
-        const newItemPrice = event.target.value
-        const newItemName = event.target.id
-        copyBasket.push({name: newItemName, price:newItemPrice})
-
-        setNewBasketItem(copyBasket)
+        // copyBasket.push(item)
+        setBasket(copyBasket)
 
     }
 
-    const deleteFromBasket = (event) => {
-        const copyBasket = [... newBasketItem]
-        const deletedItem = event.target.id
-        copyBasket.splice(deletedItem, 1)
-        setNewBasketItem(copyBasket)
-    }
+    const deleteFromBasket = (itemToDelete) => {
+        const newBasket  = basket.filter((item) => item.name !== itemToDelete.name )    
+        setBasket(newBasket)
+        }
+        
+        // copyBasket.splice(copyBasket, 1)
+        // setNewBasketItem(NewBasket)
+        
+        
+    
 
     // const handleNameChange = (e) => {
     //     setName(e.target.value)
@@ -44,8 +45,8 @@ const MainPage = () => {
     return (
         <>
 
-            <UserContext.Provider value={{list, newBasketItem, handleBasketButton, deleteFromBasket}}>
-                <ItemList>
+            <UserContext.Provider value={{list, basket, handleBasketButton, deleteFromBasket}}>
+                <ItemList >
                 <ListContainer />
                 </ItemList>
                 <Basket>

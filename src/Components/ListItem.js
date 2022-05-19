@@ -1,15 +1,19 @@
 import React, { useContext } from "react";
 import UserContext from "../context/UserContext";
 
-const ListItem = ({key, valuename, valueprice, handleButtonClick}) => {
+const ListItem = ({item, handleButtonClick}) => {
+
+    const handleButtonClickLocal = () =>{
+        handleButtonClick(item)
+    }
     
 
     return (
         <>
-        <p>{valuename}</p>
-        <p>{valueprice}</p>
+        <p>{item.name}</p>
+        <p>{item.price}</p>
 
-        <button id={valuename} index={key} value = {valueprice} priceValue={valueprice} onClick = {handleButtonClick}> Click to Add to Basket </button>
+        <button onClick = {handleButtonClickLocal}> Click to Add to Basket </button>
         </>
     )
 }

@@ -2,17 +2,17 @@ import React, { useContext } from "react";
 import UserContext from "../context/UserContext";
 import ListItem from "./ListItem";
 
-const BasketItem = ({key, namevalue, pricevalue, deleteFromBasket}) => {
+const BasketItem = ({ item, deleteFromBasket}) => {
     
     
     return (
         <>
         
-        <p>{namevalue}</p>
+        <p>{item.name}</p>
         
-        <p>{pricevalue}</p>
+        <p>{item.price}</p>
 
-        <button id={namevalue} index={key} value = {pricevalue} onClick= {deleteFromBasket} > Click to Delete from Basket </button>
+        <button onClick= {() => deleteFromBasket(item)} > Click to Delete from Basket </button>
         </>
     )
 }

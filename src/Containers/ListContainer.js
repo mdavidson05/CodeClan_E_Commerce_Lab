@@ -7,9 +7,9 @@ const ListContainer = () => {
     const{list, handleBasketButton} = useContext(UserContext)
     // const [listItem, setListItem] = useState(list);
 
-    const listItemNodes =  list.map ((list, index) => {
+    const listItemNodes =  list.map ((item, index) => {
         return (
-            <ListItem key = {index} valuename = {list.name} valueprice = {list.price} handleButtonClick = {handleBasketButton} />
+            <ListItem key = {index}  item ={item} handleButtonClick = {handleBasketButton} />
         )
     })
 

@@ -4,11 +4,12 @@ import BasketItem  from '../Components/BasketItem'
 
 const BasketContainer = () => {
 
-    const{newBasketItem, deleteFromBasket} = useContext(UserContext)
+    const{basket, deleteFromBasket} = useContext(UserContext)
 
-    const basketItemNodes = newBasketItem.map((item, index) => {
+    const basketItemNodes = basket.map((item, index) => {
         return (
-        <BasketItem key={index} namevalue={item.name} pricevalue={item.price} deleteFromBasket = {deleteFromBasket}/>
+        <BasketItem key={index} item={item}  deleteFromBasket={deleteFromBasket}/>
+        
         )
     })
 
